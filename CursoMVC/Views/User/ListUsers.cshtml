@@ -49,7 +49,11 @@
         <td>
             @Html.ActionLink("Editar", "EditUser", new { id = item.Cedula }) |
             @Html.ActionLink("Detallar", "Details", new { id = item.Cedula }) |
-            @Html.ActionLink("Eliminar", "DeleteUser", new { id = item.Cedula })
+            @if ((Convert.ToString(Session["Perfil"])) == "Admin")
+            {
+                @Html.ActionLink("Eliminar", "DeleteUser", new { id = item.Cedula })
+            }
+
         </td>
     </tr>
 }
